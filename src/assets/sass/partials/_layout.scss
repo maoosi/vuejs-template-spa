@@ -1,0 +1,63 @@
+
+/* ===============
+  Html & Body
+=============== */
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+html { font-size: 100%; }
+body { background-color: map-get($colors, white); }
+
+/* ===============
+  Tags rules
+=============== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+strong { font-weight: bold; }
+
+a {
+    @include highlight(false);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+* { box-sizing: border-box; }
+
+@include selection {
+    background-color: map-get($colors, black);
+    color: map-get($colors, white);
+}
+
+img {
+    @include highlight(false);
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    margin: .25rem 0;
+
+    @include gridle_state(tablet) {
+        margin: .75rem 0;
+    }
+}
+
+/* ===============
+  Color variations
+=============== */
+
+@each $color, $hexacode in $colors {
+    .-#{$color} { color: $hexacode; }
+    .-bg-#{$color} { background-color: $hexacode; }
+}

@@ -1,0 +1,114 @@
+
+/* ===============
+  Gridle - Grid system
+  http://gridle.org
+=============== */
+
+@include gridle_setup((
+    context : map-get($grid, columns),
+    gutter-width : map-get($grid, gutter)
+));
+
+@each $state, $opt in $mq-states {
+
+    // horizontal
+    @if map-has-key($opt, minWidth) or map-has-key($opt, maxWidth) {
+
+        // minWidth & maxWidth
+        @if map-has-key($opt, minWidth) and map-has-key($opt, maxWidth) {
+
+            @include gridle_register_state($state, (
+                query: 'only screen and (min-width: #{map-get($opt, minWidth)})'
+            ));
+            @include gridle_register_state(#{$state}-only, (
+                query: 'only screen and (min-width: #{map-get($opt, minWidth)}) and (max-width: #{map-get($opt, maxWidth)})'
+            ));
+            @include gridle_register_state(#{$state}-down, (
+                query: 'only screen and (max-width: #{map-get($opt, maxWidth)})'
+            ));
+
+        }
+
+        // minWidth only
+        @else if map-has-key($opt, minWidth) and not map-has-key($opt, maxWidth) {
+
+            @include gridle_register_state($state, (
+                query: 'only screen and (min-width: #{map-get($opt, minWidth)})'
+            ));
+            @include gridle_register_state(#{$state}-only, (
+                query: 'only screen and (min-width: #{map-get($opt, minWidth)})'
+            ));
+            @include gridle_register_state(#{$state}-down, (
+                query: 'only screen'
+            ));
+
+        }
+
+        // maxWidth only
+        @else if map-has-key($opt, maxWidth) and not map-has-key($opt, minWidth) {
+
+            @include gridle_register_state($state, (
+                query: 'only screen and (max-width: #{map-get($opt, maxWidth)})'
+            ));
+            @include gridle_register_state(#{$state}-only, (
+                query: 'only screen and (max-width: #{map-get($opt, maxWidth)})'
+            ));
+            @include gridle_register_state(#{$state}-down, (
+                query: 'only screen and (max-width: #{map-get($opt, maxWidth)})'
+            ));
+
+        }
+
+    }
+
+    // vertical
+    @if map-has-key($opt, minHeight) or map-has-key($opt, maxHeight) {
+
+        // minHeight & maxHeight
+        @if map-has-key($opt, minHeight) and map-has-key($opt, maxHeight) {
+
+            @include gridle_register_state($state, (
+                query: 'only screen and (min-height: #{map-get($opt, minHeight)})'
+            ));
+            @include gridle_register_state(#{$state}-only, (
+                query: 'only screen and (min-height: #{map-get($opt, minHeight)}) and (max-height: #{map-get($opt, maxHeight)})'
+            ));
+            @include gridle_register_state(#{$state}-down, (
+                query: 'only screen and (max-height: #{map-get($opt, maxHeight)})'
+            ));
+
+        }
+
+        // minHeight only
+        @else if map-has-key($opt, minHeight) and not map-has-key($opt, maxHeight) {
+
+            @include gridle_register_state($state, (
+                query: 'only screen and (min-height: #{map-get($opt, minHeight)})'
+            ));
+            @include gridle_register_state(#{$state}-only, (
+                query: 'only screen and (min-height: #{map-get($opt, minHeight)})'
+            ));
+            @include gridle_register_state(#{$state}-down, (
+                query: 'only screen'
+            ));
+
+        }
+
+        // maxHeight only
+        @else if map-has-key($opt, maxHeight) and not map-has-key($opt, minHeight) {
+
+            @include gridle_register_state($state, (
+                query: 'only screen and (max-height: #{map-get($opt, maxHeight)})'
+            ));
+            @include gridle_register_state(#{$state}-only, (
+                query: 'only screen and (max-height: #{map-get($opt, maxHeight)})'
+            ));
+            @include gridle_register_state(#{$state}-down, (
+                query: 'only screen and (max-height: #{map-get($opt, maxHeight)})'
+            ));
+
+        }
+
+    }
+
+};

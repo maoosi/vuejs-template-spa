@@ -1,0 +1,21 @@
+
+/* ===============
+  Global CSS rules (to be included into App.vue only)
+=============== */
+
+// Charset
+@charset 'utf-8';
+
+// Dependencies
+@import '~tinyreset/tinyreset.css';
+
+// Mixins and vars
+@import 'tools';
+
+// Partials
+@import 'partials/fonts';
+@import 'partials/grid';
+@import 'partials/layout';
+@import 'partials/buttons';
+@import 'partials/typography';
+@import 'partials/helpers';

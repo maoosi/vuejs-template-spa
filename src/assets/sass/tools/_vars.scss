@@ -1,0 +1,63 @@
+
+/* ===============
+  Global variables
+=============== */
+
+// Colors list
+$colors: (
+    white: #ffffff,
+    black: #000000
+);
+
+// Fonts variants
+$fonts: (
+    _default: (
+        'font-family': 'Arial',
+        'font-weight': normal,
+        'font-style': normal,
+        'letter-spacing': 0
+    )
+);
+
+// Grid
+$grid: (
+    columns: 12,
+    gutter: 20px,
+    maxwidth: 960px
+);
+
+// Media-query states
+//   - xsmall: 320px,
+//   - small: 480px,
+//   - medium: 992px,
+//   - large: 1120px,
+//   - xlarge: 1200px,
+//   - xxlarge: 1600px
+$mq-states: (
+    mobile: (
+        maxWidth: 992px - 1px // medium - 1
+    ),
+    tablet: (
+        minWidth: 992px, // medium
+        maxWidth: 1120px - 1px // large - 1
+    ),
+    desktop: (
+        minWidth: 1120px, // large
+        maxWidth: 1600px - 1px // xxlarge - 1
+    ),
+    giant: (
+        minWidth: 1600px // xxlarge
+    ),
+    short: (
+        maxHeight: 570px // ~iphone5 viewport height
+    ),
+    tall: (
+        minHeight: 1100px
+    )
+);
+
+// Z-index levels
+$z-index: (
+    logo: 1,
+    hamburger: 2
+)
