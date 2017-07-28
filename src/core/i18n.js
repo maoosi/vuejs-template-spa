@@ -5,7 +5,6 @@ import VueI18n from 'vue-i18n'
 Vue.use(VueI18n)
 
 // Define locales
-console.log(env)
 const locales = env.LOCALES.split(',')
 
 // Read routes
@@ -19,8 +18,8 @@ const defineMessages = (defineHMR = false) => {
         messages[locale] = { 'base': require(`@/locales/${locale}/base.yml`) }
         routes.forEach((route) => {
             if (route.name !== undefined) {
-                if (defineHMR) hmr.push(`@/locales/${locale}/${route.name}.yml`)
                 messages[locale][route.name] = require(`@/locales/${locale}/${route.name}.yml`)
+                if (defineHMR) hmr.push(`@/locales/${locale}/${route.name}.yml`)
             }
         })
     })
@@ -30,8 +29,8 @@ const defineMessages = (defineHMR = false) => {
 // i18n declaration
 let messages = defineMessages(true)
 const i18n = new VueI18n({
-    locale: env.LOCALE_DEFAULT,
-    fallbackLocale: env.LOCALE_DEFAULT,
+    locale: env.LOCALE_ACTIVE,
+    fallbackLocale: env.LOCALE_FALLBACK,
     messages
 })
 
