@@ -23,6 +23,14 @@ const defineMessages = (defineHMR = false) => {
             }
         })
     })
+
+    // Inject env vars
+    let stringMessages = JSON.stringify(messages)
+    for (let variable in env) {
+        stringMessages = stringMessages.replace(new RegExp('{env.' + variable + '}', 'g'), env[variable])
+    }
+    messages = JSON.parse(stringMessages)
+
     return messages
 }
 

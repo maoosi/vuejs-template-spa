@@ -1,11 +1,12 @@
 {
-    "name": "hungerithm-website",
+    "name": "vue-spa-starter",
     "version": "1.0.0",
-    "description": "Hungerithm Website",
-    "author": "Sylvain Simao <Sylvain.Simao@clemenger.com.au>",
+    "description": "vue-spa-starter",
+    "author": "maoosi <hello@sylvainsimao.fr>",
     "private": true,
     "scripts": {
         "dev": "node build/dev-server.js",
+        "dev-autofix": "ESLINT_FIX=true node build/dev-server.js",
         "start": "node build/dev-server.js",
         "build": "node build/build.js",
         "build-staging": "APP_ENV=staging node build/build.js",
@@ -29,6 +30,9 @@
         "node-sass": "^4.5.3",
         "perfect-scrollbar": "^0.7.1",
         "sass-loader": "^6.0.6",
+        "svg-sprite-loader": "^3.0.7",
+        "svg-url-loader": "^2.1.1",
+        "svgo-loader": "^1.2.1",
         "tinyreset": "^1.0.1",
         "vue": "2.4.2",
         "vue-i18n": "^7.0.5",
@@ -95,6 +99,5 @@
         "ie >= 9"
     ],
     "main": "index.js",
-    "repository": "https://bitbucket.org/clemengermelbourne/hungerithm-website",
     "license": "NO LICENSE"
 }

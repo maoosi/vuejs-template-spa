@@ -16,7 +16,7 @@ import mixin from '@/core/mixins'
 import i18n from '@/core/i18n'
 import store from '@/store'
 import { sync } from 'vuex-router-sync'
-import * as a11y from '@/libs/ay11'
+import * as a11y from '@/libs/a11y'
 
 // turn production tips off
 Vue.config.productionTip = false

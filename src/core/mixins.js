@@ -1,4 +1,9 @@
 export default {
+    data () {
+        return {
+            locale: env.LOCALE_ACTIVE
+        }
+    },
     components: {
         'v-align': require('@/components/mixins/VAlign'),
         'scroll-bar': require('@/components/mixins/Scrollbar'),

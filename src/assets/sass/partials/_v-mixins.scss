@@ -1,0 +1,80 @@
+
+/* ===============
+  Scrollbar mixin
+=============== */
+
+@import '~perfect-scrollbar/src/css/main';
+
+.ps--theme_m-scrollbar {
+    @include ps-container(map-merge($ps-theme-default, (
+        scrollbar-y-rail-width: 10px !important,
+        scrollbar-y-width: 6px !important,
+        scrollbar-y-hover-width: 6px !important
+    )));
+}
+
+.m-scrollbar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    & > * {
+        height: 100%;
+    }
+}
+
+/* ===============
+  Optional mixin
+=============== */
+
+.m-optional {
+    @include gridle_state(mobile-down) {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+/* ===============
+  Sprite mixin
+=============== */
+
+.m-sprite {
+    fill: currentColor;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.m-sprite-fallback {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* ===============
+  Vertical align mixin
+=============== */
+
+.m-valign {
+    &.-top {
+        @include valign(top);
+    }
+
+    &.-middle {
+        @include valign(middle);
+    }
+
+    &.-bottom {
+        @include valign(bottom);
+    }
+
+    &.-disable {
+        display: block;
+        height: auto;
+
+        & > * {
+            display: block;
+            height: auto;
+        }
+    }
+}

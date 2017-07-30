@@ -14,7 +14,18 @@ var envParamsStr = []
 for (let k in envParams) envParamsStr[k] = '"' + envParams[k] + '"'
 
 // default base.yml locale
-var defaultBaseLocale = jsyaml.load(fs.readFileSync(path.resolve(__dirname, '../../src/locales/' + envParams.LOCALE_ACTIVE + '/base.yml')))
+var defaultBaseLocale = JSON.stringify(
+    jsyaml.load(
+        fs.readFileSync(
+            path.resolve(__dirname, '../../src/locales/' + envParams.LOCALE_ACTIVE + '/base.yml')
+        )
+    )
+)
+for (let variable in envParams) {
+    defaultBaseLocale = defaultBaseLocale.replace(new RegExp('{env.' + variable + '}', 'g'), envParams[variable])
+}
+defaultBaseLocale = JSON.parse(defaultBaseLocale)
+
 
 module.exports = {
     env: envParamsStr,

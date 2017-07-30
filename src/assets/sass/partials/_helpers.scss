@@ -6,3 +6,12 @@
 ._text-center {
     text-align: center;
 }
+
+/* ===============
+  Color variations
+=============== */
+
+@each $color, $hexacode in $colors {
+    .-#{$color} { color: $hexacode; }
+    .-bg-#{$color} { background-color: $hexacode; }
+}
