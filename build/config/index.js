@@ -26,7 +26,6 @@ for (let variable in envParams) {
 }
 defaultBaseLocale = JSON.parse(defaultBaseLocale)
 
-
 module.exports = {
     env: envParamsStr,
     template: assign({ env: envParams }, defaultBaseLocale),
