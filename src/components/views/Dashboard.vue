@@ -1,6 +1,8 @@
 <template>
     <div :class="this.$options.name">
-        <h1>{{ $t('dashboard.welcome') }}</h1>
+        <content-area scrollbar="true" valign="middle">
+            <h1>{{ $t('dashboard.welcome') }}</h1>
+        </content-area>
     </div>
 </template>
 

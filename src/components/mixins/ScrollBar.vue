@@ -1,6 +1,6 @@
 <template>
     <div ref="scrollbar" class="m-scrollbar">
-        <div>
+        <div class="m-scrollbar-area">
             <slot></slot>
         </div>
     </div>

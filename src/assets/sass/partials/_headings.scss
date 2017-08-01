@@ -15,7 +15,7 @@
 
 ._heading-m {
     @include fontstyle(_default);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     line-height: 1.2;
 
     @include gridle_state(tablet) {

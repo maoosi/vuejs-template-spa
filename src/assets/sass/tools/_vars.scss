@@ -35,6 +35,10 @@ $grid: (
 //   - xxlarge: 1600px
 $mq-states: (
     mobile: (
+        maxWidth: 480px - 1px // small - 1
+    ),
+    tabletPortrait: (
+        minWidth: 480px, // small
         maxWidth: 992px - 1px // medium - 1
     ),
     tablet: (
@@ -60,4 +64,9 @@ $mq-states: (
 $z-index: (
     logo: 1,
     hamburger: 2
-)
+);
+
+// UI setups
+$ui: (
+    footerHeight: 2.5rem
+);

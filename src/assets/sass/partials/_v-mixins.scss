@@ -18,8 +18,25 @@
     width: 100%;
     height: 100%;
 
-    & > * {
+    .m-scrollbar-area {
         height: 100%;
+    }
+}
+
+/* ===============
+  Content Area
+=============== */
+
+.m-content-area {
+    margin: 2rem 0;
+    padding: 0 1.5rem;
+
+    @include gridle_state(tabletPortrait) {
+        padding: 0 4rem;
+    }
+
+    @include gridle_state(giant) {
+        padding: 0;
     }
 }
 

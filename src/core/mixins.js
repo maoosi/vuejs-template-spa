@@ -5,8 +5,9 @@ export default {
         }
     },
     components: {
+        'content-area': require('@/components/mixins/ContentArea'),
         'v-align': require('@/components/mixins/VAlign'),
-        'scroll-bar': require('@/components/mixins/Scrollbar'),
+        'scroll-bar': require('@/components/mixins/ScrollBar'),
         'o': require('@/components/mixins/Optional'),
         'svg-sprite': require('@/components/mixins/SvgSprite')
     },

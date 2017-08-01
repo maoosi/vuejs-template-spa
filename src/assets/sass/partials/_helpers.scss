@@ -7,6 +7,14 @@
     text-align: center;
 }
 
+._spacings {
+    margin: .75rem 0;
+
+    @include gridle_state(tablet) {
+        margin: 1rem 0;
+    }
+}
+
 /* ===============
   Color variations
 =============== */
