@@ -9,9 +9,6 @@
 <script>
 import perfectScrollbar from 'perfect-scrollbar'
 import _throttle from 'lodash.throttle'
-import Eventt from 'eventt.js'
-
-const eventt = Eventt()
 
 export default {
     props: ['disableFrom'],
@@ -22,12 +19,12 @@ export default {
     },
     methods: {
         bindEvents () {
-            eventt.listen('resize', window, _throttle((event) => {
+            this.$eventt.listen('resize', window, _throttle((event) => {
                 this.updateScrollbar()
             }, 400))
         },
         unbindEvents () {
-            eventt.unlisten('resize', window)
+            this.$eventt.unlisten('resize', window)
         },
         updateScrollbar () {
             let reqDisable = this.disableFrom && window.innerWidth >= this.disableFrom

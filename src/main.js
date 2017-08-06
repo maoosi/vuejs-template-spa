@@ -17,6 +17,8 @@ import i18n from '@/core/i18n'
 import store from '@/store'
 import { sync } from 'vuex-router-sync'
 import * as a11y from '@/libs/a11y'
+import { EventBus } from '@/core/bus.js'
+import Eventt from 'eventt.js'
 
 // turn production tips off
 Vue.config.productionTip = false
@@ -28,6 +30,25 @@ Vue.mixin(mixin)
 Vue.directive('a11y', {
     bind: (...args) => { a11y.directive(...args) },
     update: (...args) => { a11y.directive(...args) }
+})
+
+// global Event Bus accessible through $bus
+Object.defineProperties(Vue.prototype, {
+    $bus: {
+        get: function () {
+            return EventBus
+        }
+    }
+})
+
+// global event listeners manager accessible through $eventt
+const eventt = Eventt()
+Object.defineProperties(Vue.prototype, {
+    $eventt: {
+        get: function () {
+            return eventt
+        }
+    }
 })
 
 // sync the router with the vuex store

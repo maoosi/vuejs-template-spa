@@ -11,9 +11,6 @@
 <script>
 import IOSFix from '@/libs/iosfix.js'
 import _debounce from 'lodash.debounce'
-import Eventt from 'eventt.js'
-
-const eventt = Eventt()
 
 export default {
     name: 'app',
@@ -27,11 +24,11 @@ export default {
         this.detectDevice()
 
         // update device after a resize
-        eventt.listen('resize', window, _debounce(() => { this.detectDevice() }, 300))
-        eventt.trigger('resize', window)
+        this.$eventt.listen('resize', window, _debounce(() => { this.detectDevice() }, 300))
+        this.$eventt.trigger('resize', window)
 
         // Apply browser fixes after DOM is loaded
-        eventt.listen('DOMContentLoaded', window, () => {
+        this.$eventt.listen('DOMContentLoaded', window, () => {
             this.fixFocusableSvgs()
             this.fixIos()
         })

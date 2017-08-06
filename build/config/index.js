@@ -1,15 +1,11 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
+var fs = require('fs')
 var jsyaml = require('js-yaml')
+var envParams = require('../dotenv')
 var assign = require('lodash.assign')
 
 // dotenv
-var fs = require('fs')
-var dotenv = require('dotenv')
-var envParams = assign(
-    dotenv.parse(fs.readFileSync(path.resolve(__dirname, '../../env/base.env'))),
-    dotenv.parse(fs.readFileSync(path.resolve(__dirname, '../../env/' + (process.env.APP_ENV || 'dev') + '.env')))
-)
 var envParamsStr = []
 for (let k in envParams) envParamsStr[k] = '"' + envParams[k] + '"'
 
