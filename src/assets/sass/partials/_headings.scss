@@ -3,7 +3,7 @@
   Headings typo
 =============== */
 
-._heading-s, ._heading-m, ._heading-l {
+[class^='_heading'] {
     max-width: 100%;
     display: block;
     margin: .25rem 0;

@@ -3,11 +3,17 @@
   Global variables
 =============== */
 
-// Colors list
+// Main colors list
 $colors: (
     white: #ffffff,
     black: #000000
 );
+
+// Secondary colors list
+$colors: map-merge($colors, (
+    primary: map-get($colors, black),
+    secondary: map-get($colors, white)
+));
 
 // Fonts variants
 $fonts: (

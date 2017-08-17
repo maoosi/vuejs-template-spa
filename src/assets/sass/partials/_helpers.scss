@@ -20,6 +20,6 @@
 =============== */
 
 @each $color, $hexacode in $colors {
-    .-#{$color} { color: $hexacode; }
+    .-c-#{$color} { color: $hexacode; }
     .-bg-#{$color} { background-color: $hexacode; }
 }
