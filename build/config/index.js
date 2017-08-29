@@ -22,9 +22,18 @@ for (let variable in envParams) {
 }
 defaultBaseLocale = JSON.parse(defaultBaseLocale)
 
+let intl = []
+let locales = envParams.LOCALES.split(',')
+for (let i = 0; i < locales.length; i++) intl.push('Intl.~locale.' + locales[i].split('-')[0])
+
+let additionalVars = {
+    intl: intl.join(','),
+    iso: envParams.LOCALE_ACTIVE.split('-')[0]
+}
+
 module.exports = {
     env: envParamsStr,
-    template: assign({ env: envParams }, defaultBaseLocale),
+    template: assign({ env: envParams }, additionalVars, defaultBaseLocale),
     build: {
         env: require('./prod.env'),
         index: path.resolve(__dirname, '../../dist/index.html'),

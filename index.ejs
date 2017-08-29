@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<% htmlWebpackPlugin.options.env.LANG_ISO %>">
+<html lang="<%= htmlWebpackPlugin.options.iso %>">
 
 <head>
     <!-- Meta properties -->
@@ -59,6 +59,9 @@
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
     <% } %>
+
+    <!-- Polyfills -->
+    <script src="//cdn.polyfill.io/v2/polyfill.min.js?features=<%= htmlWebpackPlugin.options.intl %>"></script>
 
 </body>
 

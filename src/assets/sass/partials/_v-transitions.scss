@@ -1,0 +1,52 @@
+
+/* ===============
+  Transition group wrapper
+=============== */
+
+.transition-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===============
+  Slide slide transition
+=============== */
+
+.slider-slide-rtl-enter,
+.slider-slide-ltr-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.slider-slide-rtl-leave-to,
+.slider-slide-ltr-enter {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slider-slide-rtl-leave-active,
+.slider-slide-rtl-enter-active,
+.slider-slide-ltr-leave-active,
+.slider-slide-ltr-enter-active {
+    transition: all .6s ease;
+    display: inline-block;
+}
+
+.slider-slide-rtl-leave-active,
+.slider-slide-ltr-enter-active {
+    position: absolute;
+}
+
+/* ===============
+  Fade transition
+=============== */
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}

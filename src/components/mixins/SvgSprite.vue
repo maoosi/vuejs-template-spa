@@ -9,7 +9,7 @@
     </svg>
     <img v-else
         class="m-sprite-fallback"
-        :src="fallback ? 'svgsprite/' + fallback + '.svg' : 'svgsprite/' + sprite + '.svg'"
+        :src="fallback ? '/static/svgsprite/' + fallback + '.svg' : '/static/svgsprite/' + sprite + '.svg'"
         v-a11y:hide />
 </template>
 

@@ -8,6 +8,9 @@
     display: block;
     margin: .25rem 0;
 
+    &.-primary { color: map-get($colors, primary); }
+    &.-secondary { color: map-get($colors, secondary); }
+
     @include gridle_state(tablet) {
         margin: .5rem 0;
     }
