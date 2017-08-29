@@ -5,11 +5,11 @@ export default {
         }
     },
     components: {
-        'content-area': require('@/components/mixins/ContentArea'),
-        'v-align': require('@/components/mixins/VAlign'),
-        'scroll-bar': require('@/components/mixins/ScrollBar'),
-        'o': require('@/components/mixins/Optional'),
-        'svg-sprite': require('@/components/mixins/SvgSprite')
+        'content-area': require('@/components/mixins/ContentArea').default,
+        'v-align': require('@/components/mixins/VAlign').default,
+        'scroll-bar': require('@/components/mixins/ScrollBar').default,
+        'o': require('@/components/mixins/Optional').default,
+        'svg-sprite': require('@/components/mixins/SvgSprite').default
     },
     activated () {
         let route = this.$route.matched.length

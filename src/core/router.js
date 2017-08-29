@@ -5,7 +5,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 // Async components
-const Dashboard = () => import('@/components/views/Dashboard.vue')
+const Dashboard = () => import('@/components/views/Dashboard')
 
 // Router mapping
 const router = new Router({

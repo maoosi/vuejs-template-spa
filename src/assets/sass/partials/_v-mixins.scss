@@ -10,8 +10,8 @@
         scrollbar-y-rail-width: 10px !important,
         scrollbar-y-width: 6px !important,
         scrollbar-y-hover-width: 6px !important,
-        bar-container-hover-bg: desaturate(lighten(map-get($colors, chocolate), 10%), 45%) !important,
-        bar-hover-bg: darken(map-get($colors, milk), 20%) !important,
+        bar-container-hover-bg: desaturate(lighten(map-get($colors, primary), 10%), 45%) !important,
+        bar-hover-bg: darken(map-get($colors, secondary), 20%) !important,
         rail-hover-bg: transparent !important
     )));
 }
@@ -32,39 +32,21 @@
 
 .m-content-area {
     margin: 3rem 0;
-
     @include gridle_state(tablet) {
         margin: 6rem 0;
     }
-
-    &:not(.m-content-area-panel) {
-        padding: 0 1.5rem;
-
-        @include gridle_state(tabletPortrait) {
-            padding: 0 4rem;
-        }
-
-        @include gridle_state(giant) {
-            padding: 0;
-        }
+    padding: 0 1.5rem;
+    @include gridle_state(tabletPortrait) {
+        padding: 0 4rem;
     }
-
+    @include gridle_state(giant) {
+        padding: 0;
+    }
     &.m-content-area-no-margins {
         margin: 0;
     }
-
-    &.m-content-area-panel {
-        padding: 0 1.5rem;
-
-        @include gridle_state(tabletPortrait) {
-            padding: 0 4rem;
-        }
-
-        @include gridle_state(tablet) {
-            padding: 0 12rem;
-        }
-    }
 }
+
 
 /* ===============
   Optional mixin

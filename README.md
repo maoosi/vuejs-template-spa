@@ -17,3 +17,10 @@
 - Architecture
 - SVG sprites
 - Mixins
+
+
+## Roadmap
+
+- [ ] E2E Tests with Chromeless or Puppeteer
+- [ ] Pre-rendering
+- [ ] Stylelint
