@@ -77,7 +77,7 @@ module.exports = {
                         options: svgoConfig
                     }
                 ],
-                include: [resolve('static/svgsprite')]
+                include: [resolve('static/svg')]
             },
             {
                 test: /\.svg$/,
@@ -86,7 +86,7 @@ module.exports = {
                     limit: 1024,
                     name: utils.assetsPath('img/[name].[hash:7].[ext]')
                 },
-                exclude: [resolve('static/svgsprite'), resolve('src/assets/fonts')]
+                exclude: [resolve('static/svg'), resolve('src/assets/fonts')]
             },
             {
                 test: /\.(png|jpe?g|gif)(\?.*)?$/,

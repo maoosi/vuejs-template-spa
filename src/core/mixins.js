@@ -9,7 +9,7 @@ export default {
         'v-align': require('@/components/mixins/VAlign').default,
         'scroll-bar': require('@/components/mixins/ScrollBar').default,
         'o': require('@/components/mixins/Optional').default,
-        'svg-sprite': require('@/components/mixins/SvgSprite').default
+        'svg-img': require('@/components/mixins/SvgImg').default
     },
     activated () {
         let route = this.$route.matched.length
