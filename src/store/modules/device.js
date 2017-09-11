@@ -13,7 +13,8 @@ const getters = {
     isIOS: state => state.isIOS,
     isMobileAgent: state => state.isMobileAgent,
     isMobileSize: state => state.isMobileSize,
-    isMobileLandscape: state => state.isMobileLandscape
+    isMobileLandscape: state => state.isMobileLandscape,
+    isMobilePortrait: state => !state.isMobileLandscape
 }
 
 // actions
@@ -49,13 +50,6 @@ const actions = {
             commit('UPDATE_IS_IOS', true)
         } else {
             commit('UPDATE_IS_IOS', false)
-        }
-    },
-    detectPortrait ({ commit, state }) {
-        if ((state.isMobileSize && state.isMobileAgent) && window.matchMedia('(orientation: landscape)').matches) {
-            commit('UPDATE_MOBILE_PORTRAIT', false)
-        } else {
-            commit('UPDATE_MOBILE_PORTRAIT', true)
         }
     }
 }
@@ -95,10 +89,6 @@ const mutations = {
         } else {
             state.isMobileLandscape = false
         }
-    },
-    /* eslint-disable no-useless-computed-key */
-    ['UPDATE_MOBILE_PORTRAIT'] (state, isMobilePortrait) {
-        state.isMobilePortrait = isMobilePortrait
     }
 }
 
