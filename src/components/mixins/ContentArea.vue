@@ -1,7 +1,7 @@
 <script>
 export default {
     props: ['valign', 'scrollbar', 'margins'],
-    render: function(createElement) {
+    render: function (createElement) {
         let dom = createElement('div', {
             'class': {
                 'm-content-area': true,
