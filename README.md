@@ -1,26 +1,21 @@
-# Vue-Spa-Starter
+# {{ name }}
 
-> Work in progress
+> {{ description }}
 
-- Vue Router
-- VueX
-- Babel Polyfill
-- GA Autotrack
-- Vue i18n
-- Sass loader
-- Gridle
+## Build Setup
 
-- Styling base
-- Testing with Nightwatch.js
-- Env variables
-- Dynamic template
-- Architecture
-- SVG sprites
-- Mixins
+``` bash
+# install dependencies
+yarn install
 
+# serve with hot reload at localhost:8080
+yarn run dev
 
-## Roadmap
+# build for staging
+yarn run build:staging
 
-- [ ] E2E Tests with Chromeless or Puppeteer
-- [ ] Pre-rendering
-- [ ] Stylelint
+# build for production
+yarn run build:production
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

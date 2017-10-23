@@ -6,10 +6,10 @@ Vue.use(VueI18n)
 
 // Define locales
 const locales = env.LOCALES.split(',')
-const currencies = env.CURRENCIES.split(',')
+/* const currencies = env.CURRENCIES.split(',') */
 
 // Read routes
-const routes = require('@/core/router').default.options.routes
+const routes = require('@/app/router').default.options.routes
 
 // Dynamic yml files injection
 let hmr = []
@@ -18,7 +18,7 @@ const defineMessages = (defineHMR = false) => {
 
     // dynamic yml files injection
     locales.forEach((locale) => {
-        messages[locale] = { 'base': require(`@/locales/${locale}/base.yml`) }
+        messages[locale] = { 'main': require(`@/locales/${locale}/main.yml`) }
         routes.forEach((route) => {
             if (route.name !== undefined) {
                 messages[locale][route.name] = require(`@/locales/${locale}/${route.name}.yml`)
@@ -43,9 +43,9 @@ const defineNumbers = (defineHMR = false) => {
 
     locales.forEach((locale, index) => {
         numbers[locale] = {
-            currency: {
+            /* currency: {
                 style: 'currency', currency: currencies[index]
-            },
+            }, */
             decimal: {
                 style: 'decimal'
             }

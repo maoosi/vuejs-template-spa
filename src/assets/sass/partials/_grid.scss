@@ -4,7 +4,7 @@
   http://gridle.org
 =============== */
 
-@include gridle_generate_classes(all , -visible -hide);
+@include gridle_generate_classes();
 
 .gr-container {
     @include gridle_container();

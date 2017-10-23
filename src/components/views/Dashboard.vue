@@ -1,7 +1,8 @@
 <template>
     <div :class="this.$options.name">
         <content-area scrollbar="true" valign="middle">
-            <h1>{{ $t('dashboard.welcome') }}</h1>
+            <h1 class="_heading-m" v-t="'dashboard.title'"></h1>
+            <p v-t="'dashboard.lorem'"></p>
         </content-area>
     </div>
 </template>
@@ -15,5 +16,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/sass/tools';
 
-.dashboard {}
+.dashboard {
+    background: transparent;
+}
 </style>

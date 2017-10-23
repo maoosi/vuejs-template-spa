@@ -7,50 +7,51 @@
 </template>
 
 <script>
-import perfectScrollbar from 'perfect-scrollbar'
+import PerfectScrollbar from 'perfect-scrollbar'
 import _throttle from 'lodash.throttle'
 
 export default {
     props: ['disableFrom'],
     data () {
         return {
-            scrollbarExists: false
+            scrollbar: false
         }
     },
     methods: {
         bindEvents () {
             this.$eventt.listen('resize', window, _throttle((event) => {
-                this.updateScrollbar()
-            }, 400))
+                this.resize()
+            }, 400), { uid: 'scrollbar' })
         },
         unbindEvents () {
-            this.$eventt.unlisten('resize', window)
+            this.$eventt.unlisten('resize', window, 'scrollbar')
         },
-        updateScrollbar () {
+        resize () {
             let reqDisable = this.disableFrom && window.innerWidth >= this.disableFrom
 
-            if (this.scrollbarExists && reqDisable) {
+            if (this.scrollbar && reqDisable) {
                 this.destroyScrollbar()
-            } else if (!this.scrollbarExists && !reqDisable) {
+            } else if (!this.scrollbar && !reqDisable) {
                 this.createScrollbar()
-            } else if (this.scrollbarExists) {
-                perfectScrollbar.update(this.$refs.scrollbar)
+            } else if (this.scrollbar) {
+                this.updateScrollbar()
             }
         },
+        updateScrollbar () {
+            this.scrollbar.update()
+        },
         createScrollbar () {
-            perfectScrollbar.initialize(this.$refs.scrollbar, {
-                suppressScrollX: true,
-                theme: 'm-scrollbar'
+            this.scrollbar = new PerfectScrollbar(this.$refs.scrollbar, {
+                suppressScrollX: true
             })
-            this.scrollbarExists = true
         },
         destroyScrollbar () {
-            perfectScrollbar.destroy(this.$refs.scrollbar)
-            this.scrollbarExists = false
+            this.scrollbar.destroy()
+            this.scrollbar = false
         }
     },
     mounted () {
-        this.updateScrollbar()
+        this.resize()
         this.bindEvents()
     },
     beforeDestroy () {

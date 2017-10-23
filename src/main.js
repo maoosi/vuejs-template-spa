@@ -1,30 +1,19 @@
-// polyfills
-require('@/libs/requestAnimationFrame')
-
-// google analytics
-require('autotrack/lib/plugins/clean-url-tracker')
-require('autotrack/lib/plugins/event-tracker')
-require('autotrack/lib/plugins/outbound-link-tracker')
-require('autotrack/lib/plugins/url-change-tracker')
-require('autotrack/lib/plugins/social-widget-tracker')
-
-// dependencies
 import Vue from 'vue'
 import App from '@/components/App'
-import router from '@/core/router'
-import mixin from '@/core/mixins'
-import i18n from '@/core/i18n'
-import store from '@/store'
+import router from '@/app/router'
+import i18n from '@/app/i18n'
+import store from '@/app/store'
 import { sync } from 'vuex-router-sync'
-import * as a11y from '@/libs/a11y'
-import { EventBus } from '@/core/bus.js'
+import * as a11y from '@/app/a11y'
+import { EventBus } from '@/app/bus'
+import Mixin from '@/app/mixin'
 import Eventt from 'eventt.js'
 
 // turn production tips off
 Vue.config.productionTip = false
 
 // global mixin
-Vue.mixin(mixin)
+Vue.mixin(Mixin)
 
 // a11y directives
 Vue.directive('a11y', {
@@ -35,9 +24,7 @@ Vue.directive('a11y', {
 // global Event Bus accessible through $bus
 Object.defineProperties(Vue.prototype, {
     $bus: {
-        get: function () {
-            return EventBus
-        }
+        get: () => { return EventBus }
     }
 })
 
@@ -45,9 +32,7 @@ Object.defineProperties(Vue.prototype, {
 const eventt = Eventt()
 Object.defineProperties(Vue.prototype, {
     $eventt: {
-        get: function () {
-            return eventt
-        }
+        get: () => { return eventt }
     }
 })
 

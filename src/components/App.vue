@@ -3,13 +3,12 @@
         <div class="aria-status" role="status" tabindex="-1" aria-live="passive">{{ ariaStatus }}</div>
 
         <keep-alive>
-            <router-view class="view"></router-view>
+            <router-view class="view" />
         </keep-alive>
     </div>
 </template>
 
 <script>
-import IOSFix from '@/libs/iosfix.js'
 import _debounce from 'lodash.debounce'
 
 export default {
@@ -20,9 +19,6 @@ export default {
         }
     },
     mounted () {
-        // detect device type
-        this.detectDevice()
-
         // update device after a resize
         this.$eventt.listen('resize', window, _debounce(() => { this.detectDevice() }, 300))
         this.$eventt.trigger('resize', window)
@@ -30,7 +26,6 @@ export default {
         // Apply browser fixes after DOM is loaded
         this.$eventt.listen('DOMContentLoaded', window, () => {
             this.fixFocusableSvgs()
-            this.fixIos()
         })
     },
     methods: {
@@ -41,9 +36,6 @@ export default {
             // Add focusable="false" to prevent bug on IE
             let svgsToFix = document.querySelectorAll('svg:not([focusable])')
             for (let i = 0; i < svgsToFix.length; i++) svgsToFix[i].setAttribute('focusable', 'false')
-        },
-        fixIos () {
-            if (this.$store.getters.isIOS) this.iosfix = new IOSFix()
         }
     }
 }

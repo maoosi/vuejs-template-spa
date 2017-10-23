@@ -3,18 +3,18 @@
   Scrollbar mixin
 =============== */
 
-@import '~perfect-scrollbar/src/css/main';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
 
-.ps--theme_m-scrollbar {
-    @include ps-container(map-merge($ps-theme-default, (
-        scrollbar-y-rail-width: 10px !important,
-        scrollbar-y-width: 6px !important,
-        scrollbar-y-hover-width: 6px !important,
-        bar-container-hover-bg: desaturate(lighten(map-get($colors, primary), 10%), 45%) !important,
-        bar-hover-bg: darken(map-get($colors, secondary), 20%) !important,
-        rail-hover-bg: transparent !important
-    )));
-}
+// .ps--theme_m-scrollbar {
+//     @include ps-container(map-merge($ps-theme-default, (
+//         scrollbar-y-rail-width: 10px !important,
+//         scrollbar-y-width: 6px !important,
+//         scrollbar-y-hover-width: 6px !important,
+//         bar-container-hover-bg: desaturate(lighten(map-get($colors, primary), 10%), 45%) !important,
+//         bar-hover-bg: darken(map-get($colors, secondary), 20%) !important,
+//         rail-hover-bg: transparent !important
+//     )));
+// }
 
 .m-scrollbar {
     position: relative;

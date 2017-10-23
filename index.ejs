@@ -45,21 +45,6 @@
     <!-- Required tag - Content will be injected here -->
     <div id="app"></div>
 
-    <% if (htmlWebpackPlugin.options.env.GA_TRACKING_ID) { %>
-    <!-- Google Analytics -->
-    <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', '<%= htmlWebpackPlugin.options.env.GA_TRACKING_ID %>', 'auto');
-        ga('require', 'cleanUrlTracker');
-        ga('require', 'eventTracker');
-        ga('require', 'outboundLinkTracker');
-        ga('require', 'urlChangeTracker');
-        ga('require', 'socialWidgetTracker');
-        ga('send', 'pageview');
-    </script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <% } %>
-
     <!-- Polyfills -->
     <script src="//cdn.polyfill.io/v2/polyfill.min.js?features=<%= htmlWebpackPlugin.options.intl %>"></script>
 

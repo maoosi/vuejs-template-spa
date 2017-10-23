@@ -13,13 +13,12 @@ const getters = {
     isIOS: state => state.isIOS,
     isMobileAgent: state => state.isMobileAgent,
     isMobileSize: state => state.isMobileSize,
-    isMobileLandscape: state => state.isMobileLandscape,
-    isMobilePortrait: state => !state.isMobileLandscape
+    isMobileLandscape: state => state.isMobileLandscape
 }
 
 // actions
 const actions = {
-    detectDevice ({ commit, state }) {
+    detectDevice ({ dispatch, commit }) {
         // detect user agent
         let ua = navigator.userAgent.toLowerCase() || navigator.vendor.toLowerCase() || window.opera.toLowerCase()
 
@@ -51,6 +50,17 @@ const actions = {
         } else {
             commit('UPDATE_IS_IOS', false)
         }
+
+        // detect if mobile landscape
+        dispatch('detectMobileLandscape')
+    },
+    detectMobileLandscape ({ commit, state }) {
+        if ((state.isMobileSize && state.isMobileAgent) &&
+            (window.matchMedia('(orientation: landscape)').matches)) {
+            commit('UPDATE_MOBILE_LANDSCAPE', true)
+        } else {
+            commit('UPDATE_MOBILE_LANDSCAPE', false)
+        }
     }
 }
 
@@ -67,28 +77,14 @@ const mutations = {
     /* eslint-disable no-useless-computed-key */
     ['UPDATE_MOBILE_AGENT'] (state, isMobileAgent) {
         state.isMobileAgent = isMobileAgent
-
-        if (
-            (state.isMobileSize && state.isMobileAgent) &&
-            (window.matchMedia('(orientation: landscape)').matches)
-        ) {
-            state.isMobileLandscape = true
-        } else {
-            state.isMobileLandscape = false
-        }
     },
     /* eslint-disable no-useless-computed-key */
     ['UPDATE_MOBILE_SIZE'] (state, isMobileSize) {
         state.isMobileSize = isMobileSize
-
-        if (
-            (state.isMobileSize && state.isMobileAgent) &&
-            (window.matchMedia('(orientation: landscape)').matches)
-        ) {
-            state.isMobileLandscape = true
-        } else {
-            state.isMobileLandscape = false
-        }
+    },
+    /* eslint-disable no-useless-computed-key */
+    ['UPDATE_MOBILE_LANDSCAPE'] (state, isMobileLandscape) {
+        state.isMobileLandscape = isMobileLandscape
     }
 }
 

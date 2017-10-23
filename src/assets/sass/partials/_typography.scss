@@ -1,12 +1,19 @@
 
 /* ===============
+  Fonts loading
+=============== */
+
+// @include font-face(Samplinal, fonts/Samplinal, 500, normal, eot woff2 woff);
+
+
+/* ===============
   Headings typo
 =============== */
 
 [class^='_heading'] {
     max-width: 100%;
     display: block;
-    margin: .25rem 0;
+    margin: 0 0 .5rem;
 
     &.-primary { color: map-get($colors, primary); }
     &.-secondary { color: map-get($colors, secondary); }
@@ -17,7 +24,7 @@
 }
 
 ._heading-m {
-    @include fontstyle(_default);
+    @include font(default);
     font-size: 1.8rem;
     line-height: 1.2;
 

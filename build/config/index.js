@@ -1,39 +1,42 @@
+'use strict'
+
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path')
-var fs = require('fs')
-var jsyaml = require('js-yaml')
-var envParams = require('../dotenv')
-var assign = require('lodash.assign')
+const path = require('path')
+const fs = require('fs')
+const jsyaml = require('js-yaml')
+const dotenv = require('../dotenv')
+const assign = require('lodash.assign')
 
-// dotenv
-var envParamsStr = []
-for (let k in envParams) envParamsStr[k] = '"' + envParams[k] + '"'
+// environment vars converted to strings
+let env = []
+for (let k in dotenv) env[k] = '"' + dotenv[k] + '"'
 
-// default base.yml locale
-var defaultBaseLocale = JSON.stringify(
-    jsyaml.load(
-        fs.readFileSync(
-            path.resolve(__dirname, '../../src/locales/' + envParams.LOCALE_ACTIVE + '/base.yml')
-        )
+// read default main.yml locale
+let mainLocale = JSON.stringify(jsyaml.load(fs.readFileSync(
+    path.resolve(__dirname, '../../src/locales/' + dotenv.LOCALE_ACTIVE + '/main.yml')
+)))
+
+// replace {env.*} by environment vars
+for (let key in dotenv) {
+    mainLocale = mainLocale.replace(
+        new RegExp('{env.' + key + '}', 'g'),
+        dotenv[key]
     )
-)
-for (let variable in envParams) {
-    defaultBaseLocale = defaultBaseLocale.replace(new RegExp('{env.' + variable + '}', 'g'), envParams[variable])
 }
-defaultBaseLocale = JSON.parse(defaultBaseLocale)
 
+// locales
 let intl = []
-let locales = envParams.LOCALES.split(',')
+let locales = dotenv.LOCALES.split(',')
 for (let i = 0; i < locales.length; i++) intl.push('Intl.~locale.' + locales[i].split('-')[0])
 
-let additionalVars = {
-    intl: intl.join(','),
-    iso: envParams.LOCALE_ACTIVE.split('-')[0]
-}
+// template vars
+let template = { env: dotenv }
+    template = assign(template, { intl: intl.join(','), iso: dotenv.LOCALE_ACTIVE.split('-')[0] })
+    template = assign(template, JSON.parse(mainLocale))
 
 module.exports = {
-    env: envParamsStr,
-    template: assign({ env: envParams }, additionalVars, defaultBaseLocale),
+    env: env,
+    template: template,
     build: {
         env: require('./prod.env'),
         index: path.resolve(__dirname, '../../dist/index.html'),
@@ -55,7 +58,7 @@ module.exports = {
     },
     dev: {
         env: require('./dev.env'),
-        port: 5151,
+        port: process.env.PORT || 8080,
         autoOpenBrowser: true,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',

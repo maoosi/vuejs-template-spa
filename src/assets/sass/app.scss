@@ -6,17 +6,17 @@
 // Charset
 @charset 'utf-8';
 
-// Dependencies
-@import '~tinyreset/tinyreset.css';
+// Reboot.css
+// https://raw.githubusercontent.com/twbs/bootstrap/v4-dev/dist/css/bootstrap-reboot.css
+@import 'reboot';
 
 // Mixins and vars
 @import 'tools';
 
 // Partials
-@import 'partials/fonts';
 @import 'partials/grid';
-@import 'partials/layout';
+@import 'partials/typography';
+@import 'partials/main';
 @import 'partials/buttons';
-@import 'partials/headings';
-@import 'partials/helpers';
 @import 'partials/v-mixins';
+@import 'partials/v-transitions';

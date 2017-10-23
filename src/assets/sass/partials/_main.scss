@@ -1,0 +1,47 @@
+
+/* ===============
+  Tags rules
+=============== */
+
+body {
+    @include font(default);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    @include highlight(false);
+}
+
+@include selection {
+    background-color: map-get($colors, black);
+    color: map-get($colors, white);
+}
+
+img {
+    @include highlight(false);
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===============
+  Helper classes
+=============== */
+
+._text-center { text-align: center; }
+._text-right { text-align: right; }
+._text-left { text-align: left; }
+
+/* ===============
+  Color variations
+=============== */
+
+@each $color, $hexacode in $colors {
+    .-#{$color} { color: $hexacode; }
+    .-bg-#{$color} { background-color: $hexacode; }
+}
