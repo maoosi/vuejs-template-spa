@@ -1,6 +1,6 @@
-# vuejs-template-maoosi
+# vuejs-template-spa
 
-> The last Vue SPA boilerplate your projects will ever need.
+> The last Vue SPA boilerplate your 🐱 will ever need.
 
 ## Requirements
 
@@ -15,9 +15,9 @@ npm i -g sao
 ### Installation
 
 ```bash
-sao maoosi/vuejs-template-maoosi
+sao maoosi/vuejs-template-spa my-project
 ```
 
 ## License
 
-[MIT](https://github.com/maoosi/vuejs-template-maoosi/blob/master/LICENSE.md) © Sylvain Simao
+[MIT](https://github.com/maoosi/vuejs-template-spa/blob/master/LICENSE.md) © Sylvain Simao

@@ -1,9 +1,9 @@
 {
-    "name": "vuejs-template-maoosi",
+    "name": "vuejs-template-spa",
     "version": "1.0.0",
-    "description": "The last Vue SPA boilerplate you’ll ever need.",
+    "description": "The last Vue SPA boilerplate your cat will ever need.",
     "repository": {
-        "url": "maoosi/vuejs-template-maoosi",
+        "url": "maoosi/vuejs-template-spa",
         "type": "git"
     },
     "author": "maoosi <hello@sylvainsimao.fr>",
